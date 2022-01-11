@@ -256,6 +256,9 @@ echo ' >
       <label><input class="w3-input" type="text" name="spostalcode" '; echo "value=\"$user->postalCode\""; echo '></label><br>
 
       <label><select class="w3-select" name="swojewodztwo">
+       <option value="" ';
+      if (!(isset($user->wojewodztwo))) { echo ' disabled selected>Wybież wojewodztwo</option>'; }
+     echo '
        <option value="dolnośląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="dolnośląskie") { echo "selected"; }; echo '>dolnośląskie</option>
        <option value="kujawsko-pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="kujawsko-pomorskie") { echo "selected"; }; echo '>kujawsko-pomorskie</option>
        <option value="lubelskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="lubelskie") { echo "selected"; }; echo '>lubelskie</option>
