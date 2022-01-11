@@ -372,10 +372,12 @@ echo '>
         $k = $datetime->format('r');
         echo "Dodał: ".$user->swhocreated."&nbsp&nbsp&nbspdata dodania: ".$k."<br>" ;
         $utm = $user->lastModified;
-        $datetime = $utm->toDateTime();
-        $datetime->setTimezone($tz); //Set timezone
-        $modfied = $datetime->format('r');
-        echo "Edytował: ".$user->swhoedited."&nbsp&nbsp&nbsp data ostatniej modyfikacji: ".$modfied."" ;
+        if($utm) {
+         $datetime = $utm->toDateTime();
+         $datetime->setTimezone($tz); //Set timezone
+         $modfied = $datetime->format('r');
+         echo "Edytował: ".$user->swhoedited."&nbsp&nbsp&nbsp data ostatniej modyfikacji: ".$modfied."" ;
+       }
 echo '</div>';
 
       echo " status: <b>".$user->status."</b><br>" ;
