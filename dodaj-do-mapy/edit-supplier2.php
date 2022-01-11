@@ -143,10 +143,8 @@ $collection = $mongoconnection->$db_name->$collection;
 
 $tz = new DateTimeZone('Europe/Warsaw');
 $date = date("Y-m-d H:i:s"); //Current Date
-$mongo_date = new MongoDB\BSON\UTCDateTime(strtotime($date)*1000);
+//$mongo_date = new MongoDB\BSON\UTCDateTime(strtotime($date)*1000);
 //nie dziala - $mongo_date->setTimezone($tz); //Set timezone
-
-//=> new MongoDB\BSON\ObjectId ($sid )
 
 $result = $collection->updateOne(
   [ '_id' => new MongoDB\BSON\ObjectId ($xsid) ],
@@ -196,11 +194,8 @@ $result = $collection->updateOne(
  ],
 );
 
-//$id2 = $result->getInsertedId();
-//echo "Dodany: $date (UTC) z ID: '{$result->getInsertedId()}'<br><br>";
 echo "<a href=\"show-supplier.php?id=$xsid\"><b>Pokaż dostawcę</b></a><br>" ;
-echo "DEBUG: mongo_date: $mongo_date<br>";
-
+//echo "DEBUG: mongo_date: $mongo_date<br>";
 ?>
 
 </body>
