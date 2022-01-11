@@ -144,7 +144,13 @@ echo "</fieldset>
  $datetime->setTimezone($tz); //Set timezone
  $k = $datetime->format('r');
  echo "Dodał: ".$user->swhocreated."&nbsp&nbsp&nbspdata dodania: ".$k."<br>" ;
- echo "Edytował: ".$user->swhoedited."&nbsp&nbsp&nbsp data ostatniej modyfikacji: ".$user->created."" ;
+ $utm = $user->lastModified;
+ if($utm) {
+  $datetime = $utm->toDateTime();
+  $datetime->setTimezone($tz); //Set timezone
+  $modfied = $datetime->format('r');
+  echo "Edytował: ".$user->swhoedited."&nbsp&nbsp&nbsp data ostatniej modyfikacji: ".$modfied."" ;
+ }
  echo "<br>";
  echo "  </fieldset>";
 }
