@@ -364,12 +364,24 @@ echo '>
         <br>
         <br>
         <textarea name="snotes" >'; echo "$user->notes";
-        echo ' </textarea>
-      </div>';
+        echo ' </textarea><br><br>';
+        $tz = new DateTimeZone('Europe/Warsaw');
+        $ut = $user->created;
+        $datetime = $ut->toDateTime();
+        $datetime->setTimezone($tz); //Set timezone
+        $k = $datetime->format('r');
+        echo "Dodał: ".$user->swhocreated."&nbsp&nbsp&nbspdata dodania: ".$k."<br>" ;
+        $utm = $user->lastModified;
+        $datetime = $utm->toDateTime();
+        $datetime->setTimezone($tz); //Set timezone
+        $modfied = $datetime->format('r');
+        echo "Edytował: ".$user->swhoedited."&nbsp&nbsp&nbsp data ostatniej modyfikacji: ".$modfied."" ;
+echo '</div>';
+
       echo " status: <b>".$user->status."</b><br>" ;
       echo " (id: ".$user->_id.")<br>" ;
       echo "</fieldset>";
-      echo "<br>data dodania: ".$user->created."";
+
 echo ' </div>
   </div>
    <br>
