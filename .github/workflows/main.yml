@@ -40,7 +40,7 @@ jobs:
 #  resolves = ["Deploy to Staging"]
 #}
 
-action "Deploy to Staging" {
+#action "Deploy to Staging" {
 #  uses = "contention/action-rsync-deploy@master"
 #  secrets = ["DEPLOY_KEY"]
 #  args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "gitdeploy@nc.indygo-time.org:/srv/myapp/public/htdocs/"]
