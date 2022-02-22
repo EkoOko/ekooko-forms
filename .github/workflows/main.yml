@@ -19,6 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: self-hosted
+    environment: develop
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,15 +36,10 @@ jobs:
           pwd
           ls -l
 
-   deploy:
+  deployment:
     runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    environment: develop
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: run rsync
         run: rsync -av . /var/www/html/dev-ekooko-org
 
