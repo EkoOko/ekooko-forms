@@ -35,6 +35,23 @@ jobs:
           pwd
           ls -l
 
+   deploy:
+    runs-on: self-hosted
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #- uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: run rsync
+        run: rsync -av . /var/www/html/dev-ekooko-org
+
+      # Runs a set of commands using the runners shell
+      - name: set owner and permissions
+        run: |
+          chown -R apache:apache /var/www/html/dev-ekooko-org
+
 #workflow "All pushes" {
 # on = "push"
 #  resolves = ["Deploy to Staging"]
@@ -44,4 +61,4 @@ jobs:
 #  uses = "contention/action-rsync-deploy@master"
 #  secrets = ["DEPLOY_KEY"]
 #  args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "gitdeploy@nc.indygo-time.org:/srv/myapp/public/htdocs/"]
-#} 
+#}
