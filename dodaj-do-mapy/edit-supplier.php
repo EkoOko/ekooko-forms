@@ -257,7 +257,7 @@ echo ' >
 
       <label><select class="w3-select" name="swojewodztwo">
        <option value="" ';
-      if (!(isset($user->wojewodztwo))) { echo ' disabled selected>Wybież wojewodztwo</option>'; }
+      if (!(isset($user->wojewodztwo))) { echo ' disabled selected>wybierz województwo</option>'; }
      echo '
        <option value="dolnośląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="dolnośląskie") { echo "selected"; }; echo '>dolnośląskie</option>
        <option value="kujawsko-pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="kujawsko-pomorskie") { echo "selected"; }; echo '>kujawsko-pomorskie</option>
