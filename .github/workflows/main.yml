@@ -44,10 +44,9 @@ jobs:
         run: rsync -av . /var/www/html/dev-ekooko-org
 
       # Runs a set of commands using the runners shell
-      - name: set owner and permissions
-        run: |
-          chown -R apache:apache /var/www/html/dev-ekooko-org
-
+      #- name: set owner and permissions
+      #  run: |
+          
 #workflow "All pushes" {
 # on = "push"
 #  resolves = ["Deploy to Staging"]
