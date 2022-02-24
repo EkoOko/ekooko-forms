@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $xsfirstname = test_input($_POST['sfirstname']);
  $xslastname = test_input($_POST["slastname"]);
  $xsname = test_input($_POST["sname"]);
- $xsnick = test_input($_POST["snick"]);
+ //$xsnick = test_input($_POST["snick"]);
+$xsnick = '';
 
  if(!isset($_POST['stype']) || empty($_POST['stype'])) {
     //if it has no value then set PRIVATE.
@@ -90,7 +91,7 @@ echo "id: $xsid <br>";
 echo "Nazwa gospodarstwa: $xsname, ";
 echo "Imię: $xsfirstname, ";
 echo "Nazwisko: $xslastname, ";
-echo "nick: $xsnick<br>";
+//echo "nick: $xsnick<br>";
 echo "typ: $xstype<br>";
 echo "<br>availabilityInMon: $xsavailabilityInMon: ";
 echo "workinghourMon: $xsworkinghourMon<br>";

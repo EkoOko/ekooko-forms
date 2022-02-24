@@ -81,7 +81,7 @@ foreach ($result as $user) {
  echo " (id: ".$user->_id.")<br>" ;
  echo "<br>Imię: ".$user->firstName."<br>" ;
  echo "Nazwisko: ".$user->lastName."<br>" ;
- echo "nick: ".$user->nick."<br><br>" ;
+ //echo "nick: ".$user->nick."<br><br>" ;
  echo "typ: ".$user->type."<br>";
 
 echo "<br>Dostepny w dniach:<br><br>";
