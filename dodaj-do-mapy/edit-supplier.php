@@ -84,7 +84,7 @@ echo '<label for="sfirstname">Imię</label><input class="w3-input" type="text" n
 echo " value=\"$user->firstName\"><br>";
 echo '<label for="slastname">Nazwisko</label><input class="w3-input" type="text" name="slastname"';
 echo " value=\"$user->lastName\"><br>";
-echo '    <label>Nick<input class="w3-input" type="text" name="snick"'; echo "value=\"$user->nick\"></label><br>";
+//echo '    <label>Nick<input class="w3-input" type="text" name="snick"'; echo "value=\"$user->nick\"></label><br>";
 
 echo '     <div class="w3-cell-row w3-row-padding">
       <div class="w3-cell w3-left-align">
