@@ -34,7 +34,6 @@ session_start();
          <dl>
           <dd><a href="edukacja/">Edukacja</a>
           <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-          <dd><a href="login/">Logowanie</a>
          </dl>
         </div>
         <div class="w3-container w3-quarter">
@@ -70,7 +69,7 @@ session_start();
    <dl>
     <dd><a href="edukacja/">Edukacja</a>
     <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-    <dd><a href="logout.php">Wyloguj</a><p> <?=$_SESSION['user']?></p>
+    <dd><a href="logout.php">Wyloguj</a><?=$_SESSION['user']?>
    </dl>
   </div>
   <div class="w3-container w3-quarter">
