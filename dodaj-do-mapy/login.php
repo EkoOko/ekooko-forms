@@ -16,4 +16,4 @@ if (!empty($_POST['login']) && !empty($_POST['password']))
 }
 
 //header("Location: https://localhost:8003/index.php");
-header("Location: manage-suppliers.html");      
+header("Location: index.php");      
