@@ -9,6 +9,7 @@ session_start();
 <h2>Zmodyfikowano producenta</h2>
 <a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
 <br>
+<a href="logout.php">Wyloguj:</a> <?=$_SESSION['user']?>
 <br>
 
 <?php
