@@ -1,4 +1,4 @@
-<?php include_once("config.php"); 
+<?php include_once("config.php");
 
 if(!loggedIn()):
  header('Location: login.php');
@@ -89,6 +89,7 @@ $xsnick = '';
 
  $xssourceofsupplier = test_input($_POST["ssourceofsupplier"]);
  $xsnotes = test_input($_POST["snotes"]);
+ $xscurrentlogged = $_SESSION["login"];
 }
 
 function test_input($data) {
@@ -203,7 +204,8 @@ $result = $collection->updateOne(
   'addreschecked' => $xschecked,
   'verified' => $xsverified,
   'sourceofsupplier' => $xssourceofsupplier,
-  'notes' => $xsnotes
+  'notes' => $xsnotes,
+  'swhoedited' => $xscurrentlogged
  ],
  '$currentDate' => ['lastModified' => true],
  ],
