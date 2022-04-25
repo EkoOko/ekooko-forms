@@ -1,7 +1,4 @@
-<?php
-
-session_start();
-?>
+<?php include_once("config.php"); ?>
 
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -22,88 +19,23 @@ session_start();
 </head>
 
 <body>
-    <?php if (empty($_SESSION['user'])) : ?>
-
-      <!-- ### <header> ### -->
-      <div class="w3-container">
-       <div class="w3-row-padding">
-        <div class="w3-container w3-half">
-          <a href="/"><img src="img/Zrzut ekranu z 2021-03-14 16-10-52.png-off" alt="logo EkoOko" title="logo"></a>
-        </div>
-        <div class="w3-container w3-quarter">
-         <dl>
-          <dd><a href="edukacja/">Edukacja</a>
-          <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-         </dl>
-        </div>
-        <div class="w3-container w3-quarter">
-         <dl>
-          <dd><a href="/">Nasza misja</a>
-          <dd><a href="/">Stowarzyszenie EkoOko</a>
-          <dd><a href="/">Kontakt</a>
-         </dl>
-        </div>
-       </div>
-      </div>
-      <hr>
-      <!-- end of #header  -->
-
-    <form action="login.php" method="post">
-      <input type="text" name="login" />
-      <br/>
-      <input type="password" name="password" />
-      <br/>
-      <button type="submit">log in</button>
-    </form>
-    <?php else : ?>
-
+<?php include 'header.php';?>
 
 <!-- ### body ########################################################### -->
-<!-- ### <header> ### -->
-<div class="w3-container">
- <div class="w3-row-padding">
-  <div class="w3-container w3-half">
-    <a href="/"><img src="img/Zrzut ekranu z 2021-03-14 16-10-52.png-off" alt="logo EkoOko" title="logo"></a>
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="edukacja/">Edukacja</a>
-    <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-    <dd><a href="logout.php">Wyloguj:</a> <?=$_SESSION['user']?>
-   </dl>
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="/">Nasza misja</a>
-    <dd><a href="/">Stowarzyszenie EkoOko</a>
-    <dd><a href="/">Kontakt</a>
-   </dl>
-  </div>
- </div>
-</div>
-<hr>
-<!-- end of #header  -->
 <!-- ### main body ### -->
-<div class="w3-container w3-left" id="main">
+<div class="w3-container" id="main">
 <div class="w3-container">
-<H2>Zarządzanie Producentami</h2>
 
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
-<br>
+  <?php if(!loggedIn()):?>
+    <a href="login.php">Zaloguj</a>
+  <?php else:?>
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
+<div class="w3-container w3-green">
+ <h2>Producenci</h2>
+  <?php endif;?>
 </div>
 
-<hr>
+<?php include 'footer.php';?>
 
-
-</div>
-
-<div class="w3-container" id="footer">
-  Stopka strony<br>
-  Autor i data powstania strony<br>
-  Informacje kontaktowe<br>
-  &copy; Zastrzeżenie praw autorskich<br>
-</div>
-
-    <?php endif; ?>
 </body>
 </html>

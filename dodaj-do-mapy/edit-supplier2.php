@@ -1,15 +1,23 @@
-<?php
+<?php include_once("config.php"); 
 
-session_start();
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
 ?>
 
 <html>
 <body>
+<?php include 'header.php';?>
 
 <h2>Zmodyfikowano producenta</h2>
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
 <br>
-<a href="logout.php">Wyloguj:</a> <?=$_SESSION['user']?>
+  <?php if(!loggedIn()):?>
+    <dd><a href="login.php">Zaloguj</a>
+  <?php else:?>
+    <dd><b><?php print $_SESSION["login"]; ?></b> <a href="logout.php">Wyloguj</a>
+  <?php endif;?>
+<br>
 <br>
 
 <?php
