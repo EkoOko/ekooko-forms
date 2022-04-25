@@ -26,14 +26,12 @@
 <div class="w3-container" id="main">
 <div class="w3-container">
 
-  <?php if(!loggedIn()):?>
-    <a href="login.php">Zaloguj</a>
-  <?php else:?>
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
-<div class="w3-container w3-green">
- <h2>Producenci</h2>
+ <?php if(loggedIn()):?>
+ <a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
+ <div class="w3-container w3-green">
+  <h2>Producenci</h2>
   <?php endif;?>
-</div>
+ </div>
 
 <?php include 'footer.php';?>
 

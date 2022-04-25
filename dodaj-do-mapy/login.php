@@ -1,7 +1,7 @@
 <?php
 include_once("config.php");
 
-if(loggedIn())
+if(loggedIn()):
  header('Location: index.php');
 endif;
 
