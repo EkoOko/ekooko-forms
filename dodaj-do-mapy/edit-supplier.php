@@ -1,6 +1,8 @@
-<?php
+<?php include_once("config.php"); 
 
-session_start();
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -22,36 +24,13 @@ session_start();
 </head>
 <body>
 <!-- ### body ########################################################### -->
-<!-- ### <header> ### -->
-<div class="w3-container">
- <div class="w3-row-padding">
-  <div class="w3-container w3-half">
-<!--    <a href="/"><img src="img/Zrzut ekranu z 2021-03-14 16-10-52.png-off" alt="logo EkoOko" title="logo"></a>-->
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="edukacja/">Edukacja</a>
-    <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-    <dd><a href="logout.php">Wyloguj:</a> <?=$_SESSION['user']?>
-   </dl>
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="/">Nasza misja</a>
-    <dd><a href="/">Stowarzyszenie EkoOko</a>
-    <dd><a href="/">Kontakt</a>
-   </dl>
-  </div>
- </div>
-</div>
-<hr>
-<!-- end of #header  -->
+<?php include 'header.php';?>
 
 <!-- ### main body ### -->
 <div class="w3-container" id="main">
 <div class="w3-container">
 
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
 <?php
  $sid = $_GET['id'];
  if(empty($_GET['id'])){ echo "Coś nie tak puste id"; exit; }

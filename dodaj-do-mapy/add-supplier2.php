@@ -1,16 +1,39 @@
-<?php
+<?php include_once("config.php"); 
 
-session_start();
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Najkrótsza droga do zdrowej żywności | mapa EkoOko</title>
+    <meta name="description" content="Gdzie lokalnie kupić zdrową żywność">
+  <!-- albo tak: -->
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <!-- albo tal: -->
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="../css/w3.css">
+      <link rel="stylesheet" href="../css/main.css">
+      <script src="../js/w3.js" async></script>
+</head>
 <body>
+<!-- ### body ########################################################### -->
 
-<h2>Dodano producenta</h2>
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
-<br>
-<a href="logout.php">Wyloguj:</a> <?=$_SESSION['user']?>
-<br>
+<?php include 'header.php';?>
+
+<!-- ### main body ### -->
+<div class="w3-container" id="main">
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
+
+<div class="w3-container w3-green">
+ <h2>Dodano producenta</h2>
+</div>
 
 <?php
 //checkboxes vars
@@ -235,6 +258,9 @@ echo "<a href=\"show-supplier.php?id=$id2\"><b>Pokaż dostawcę</b></a><br>" ;
 echo "DEBUG: mongo_date: $mongo_date<br>";
 
 ?>
+</div>
+
+<?php include 'footer.php';?>
 
 </body>
 </html>
