@@ -1,4 +1,4 @@
-<?php include_once("config.php"); 
+<?php include_once("config.php");
 
 if(!loggedIn()):
  header('Location: login.php');
@@ -100,6 +100,7 @@ $xsnick = '';
 
  $xssourceofsupplier = test_input($_POST["ssourceofsupplier"]);
  $xsnotes = test_input($_POST["snotes"]);
+ $xscurrentlogged = $_SESSION["login"];
 }
 
 function test_input($data) {
@@ -249,6 +250,7 @@ $result = $collection->insertOne( [
   'status' => 'NEW',
   'rating' => '0',
   'created' => $mongo_date,
+  'swhocreated' => $xscurrentlogged
 ],
 );
 
@@ -256,7 +258,6 @@ $id2 = $result->getInsertedId();
 echo "Dodany: $date (UTC) z ID: '{$result->getInsertedId()}'<br><br>";
 echo "<a href=\"show-supplier.php?id=$id2\"><b>Pokaż dostawcę</b></a><br>" ;
 echo "DEBUG: mongo_date: $mongo_date<br>";
-
 ?>
 </div>
 
