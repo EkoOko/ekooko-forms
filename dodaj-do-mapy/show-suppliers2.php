@@ -1,3 +1,10 @@
+<?php include_once("config.php");
+
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
+?>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -34,45 +41,23 @@
 </head>
 <body>
 <!-- ### body ########################################################### -->
-<!-- ### <header> ### -->
-<div class="w3-container">
- <div class="w3-row-padding">
-  <div class="w3-container w3-half">
-<!--    <a href="/"><img src="img/Zrzut ekranu z 2021-03-14 16-10-52.png-off" alt="logo EkoOko" title="logo"></a>-->
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="edukacja/">Edukacja</a>
-    <dd><a href="dodaj-do-mapy/">Dodaj do mapy</a>
-    <dd><a href="login/">Logowanie</a>
-   </dl>
-  </div>
-  <div class="w3-container w3-quarter">
-   <dl>
-    <dd><a href="/">Nasza misja</a>
-    <dd><a href="/">Stowarzyszenie EkoOko</a>
-    <dd><a href="/">Kontakt</a>
-   </dl>
-  </div>
- </div>
-</div>
-<hr>
-<!-- end of #header  -->
+<?php include 'header.php';?>
 
 <!-- ### main body ### -->
 <div class="w3-container" id="main">
 <div class="w3-container">
 
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
 <div class="w3-container w3-green">
  <h2>Producenci</h2>
 </div>
+
 
 <?php
 // This path should point to Composer's autoloader
 require '../vendor/autoload.php';
 $configs = include('config.php');
-
+    
 use MongoDB\Client as Mongo;
 
 $mongoconnection = new Mongo("mongodb://${user}:${pwd}@${dbmhost}:${dbmport}");
@@ -149,15 +134,7 @@ echo "</table>";
 <br>
 </div>
 
-<hr>
-</div>
-
-<div class="w3-container" id="footer">
-  Stopka strony<br>
-  Autor i data powstania strony<br>
-  Informacje kontaktowe<br>
-  &copy; Zastrzeżenie praw autorskich<br>
-</div>
+<?php include 'footer.php';?>
 
 </body>
 </html>

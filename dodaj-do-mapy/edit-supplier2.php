@@ -1,8 +1,22 @@
+<?php include_once("config.php");
+
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
+?>
+
 <html>
 <body>
+<?php include 'header.php';?>
 
 <h2>Zmodyfikowano producenta</h2>
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
+<br>
+  <?php if(!loggedIn()):?>
+    <dd><a href="login.php">Zaloguj</a>
+  <?php else:?>
+    <dd><b><?php print $_SESSION["login"]; ?></b> <a href="logout.php">Wyloguj</a>
+  <?php endif;?>
 <br>
 <br>
 
@@ -23,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $xsfirstname = test_input($_POST['sfirstname']);
  $xslastname = test_input($_POST["slastname"]);
  $xsname = test_input($_POST["sname"]);
- $xsnick = test_input($_POST["snick"]);
+ //$xsnick = test_input($_POST["snick"]);
+$xsnick = '';
 
  if(!isset($_POST['stype']) || empty($_POST['stype'])) {
     //if it has no value then set PRIVATE.
@@ -74,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  $xssourceofsupplier = test_input($_POST["ssourceofsupplier"]);
  $xsnotes = test_input($_POST["snotes"]);
+ $xscurrentlogged = $_SESSION["login"];
 }
 
 function test_input($data) {
@@ -90,7 +106,7 @@ echo "id: $xsid <br>";
 echo "Nazwa gospodarstwa: $xsname, ";
 echo "Imię: $xsfirstname, ";
 echo "Nazwisko: $xslastname, ";
-echo "nick: $xsnick<br>";
+//echo "nick: $xsnick<br>";
 echo "typ: $xstype<br>";
 echo "<br>availabilityInMon: $xsavailabilityInMon: ";
 echo "workinghourMon: $xsworkinghourMon<br>";
@@ -188,7 +204,8 @@ $result = $collection->updateOne(
   'addreschecked' => $xschecked,
   'verified' => $xsverified,
   'sourceofsupplier' => $xssourceofsupplier,
-  'notes' => $xsnotes
+  'notes' => $xsnotes,
+  'swhoedited' => $xscurrentlogged
  ],
  '$currentDate' => ['lastModified' => true],
  ],

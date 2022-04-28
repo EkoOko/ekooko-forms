@@ -1,10 +1,39 @@
-<html>
-<body>
+<?php include_once("config.php");
 
-<h2>Dodano producenta</h2>
-<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.html">dodaj producenta</a>
-<br>
-<br>
+if(!loggedIn()):
+ header('Location: login.php');
+endif;
+?>
+
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Najkrótsza droga do zdrowej żywności | mapa EkoOko</title>
+    <meta name="description" content="Gdzie lokalnie kupić zdrową żywność">
+  <!-- albo tak: -->
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <!-- albo tal: -->
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="../css/w3.css">
+      <link rel="stylesheet" href="../css/main.css">
+      <script src="../js/w3.js" async></script>
+</head>
+<body>
+<!-- ### body ########################################################### -->
+
+<?php include 'header.php';?>
+
+<!-- ### main body ### -->
+<div class="w3-container" id="main">
+<a href="show-suppliers2.php">Pokaż producentów</a>  <a href="add-supplier.php">dodaj producenta</a>
+
+<div class="w3-container w3-green">
+ <h2>Dodano producenta</h2>
+</div>
 
 <?php
 //checkboxes vars
@@ -19,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $xsfirstname = test_input($_POST['sfirstname']);
  $xslastname = test_input($_POST["slastname"]);
  $xsname = test_input($_POST["sname"]);
- $xsnick = test_input($_POST["snick"]);
+ //$xsnick = test_input($_POST["snick"]);
+$xsnick = '';
 
  if(!isset($_POST['stype']) || empty($_POST['stype'])) {
     //if it has no value then set PRIVATE.
@@ -70,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  $xssourceofsupplier = test_input($_POST["ssourceofsupplier"]);
  $xsnotes = test_input($_POST["snotes"]);
+ $xscurrentlogged = $_SESSION["login"];
 }
 
 function test_input($data) {
@@ -86,7 +117,7 @@ function test_input($data) {
 echo "Nazwa gospodarstwa: $xsname, ";
 echo "Imię: $xsfirstname, ";
 echo "Nazwisko: $xslastname, ";
-echo "nick: $xsnick<br>";
+//echo "nick: $xsnick<br>";
 echo "typ: $xstype<br>";
 echo "<br>availabilityInMon: $xsavailabilityInMon: ";
 echo "workinghourMon: $xsworkinghourMon<br>";
@@ -219,6 +250,7 @@ $result = $collection->insertOne( [
   'status' => 'NEW',
   'rating' => '0',
   'created' => $mongo_date,
+  'swhocreated' => $xscurrentlogged
 ],
 );
 
@@ -226,8 +258,10 @@ $id2 = $result->getInsertedId();
 echo "Dodany: $date (UTC) z ID: '{$result->getInsertedId()}'<br><br>";
 echo "<a href=\"show-supplier.php?id=$id2\"><b>Pokaż dostawcę</b></a><br>" ;
 echo "DEBUG: mongo_date: $mongo_date<br>";
-
 ?>
+</div>
+
+<?php include 'footer.php';?>
 
 </body>
 </html>
