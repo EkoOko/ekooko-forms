@@ -57,7 +57,7 @@ endif;
 // This path should point to Composer's autoloader
 require '../vendor/autoload.php';
 $configs = include('config.php');
-    
+
 use MongoDB\Client as Mongo;
 
 $mongoconnection = new Mongo("mongodb://${user}:${pwd}@${dbmhost}:${dbmport}");
@@ -95,7 +95,8 @@ foreach ($result as $user) {
 // echo "kraj: ".$user->countryCode."<br>" ;
  echo "<td>".$user->contactPhone."<br>".$user->contactPhone2."</td>" ;
  echo "<td>".$user->email."</td>" ;
- echo "<td>".$user->mapCoordinates."</td>";
+//TODO change to GeoJson
+// echo "<td>".$user->mapCoordinates."</td>";
 // echo "odbiór osobisty: ".$user->personaly."<br>";
 // echo "dostawa(dowóz): ".$user->delivery."<br>";
 // echo "wysyłka: ".$user->shipment."<br>";
