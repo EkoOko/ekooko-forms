@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI prod
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ develop ]
+  #push:
+  #  branches: [ main ]
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,41 +19,16 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: self-hosted
-    environment: development
+    environment: production
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      #- name: Run a one-line script
-      #  run: ls -l
-
-      # Runs a set of commands using the runners shell
-      #- name: Run a multi-line script
-      #  run: |
-      #    pwd
-      #    ls -l
-
   deployment:
     runs-on: self-hosted
-    environment: development
+    environment: production
     steps:
       - name: run rsync
-        run: rsync -av . /var/www/html/dev-ekooko-org
-
-      # Runs a set of commands using the runners shell
-      #- name: set owner and permissions
-      #  run: |
-
-#workflow "All pushes" {
-# on = "push"
-#  resolves = ["Deploy to Staging"]
-#}
-
-#action "Deploy to Staging" {
-#  uses = "contention/action-rsync-deploy@master"
-#  secrets = ["DEPLOY_KEY"]
-#  args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "gitdeploy@nc.indygo-time.org:/srv/myapp/public/htdocs/"]
-#}
+        run: rsync -av . /var/www/html/ekooko-org
