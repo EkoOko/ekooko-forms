@@ -95,8 +95,7 @@ foreach ($result as $user) {
 // echo "kraj: ".$user->countryCode."<br>" ;
  echo "<td>".$user->contactPhone."<br>".$user->contactPhone2."</td>" ;
  echo "<td>".$user->email."</td>" ;
-//TODO change to GeoJson
-// echo "<td>".$user->mapCoordinates."</td>";
+ echo "<td>".$user->mapCoordinates."</td>";
 // echo "odbiór osobisty: ".$user->personaly."<br>";
 // echo "dostawa(dowóz): ".$user->delivery."<br>";
 // echo "wysyłka: ".$user->shipment."<br>";
