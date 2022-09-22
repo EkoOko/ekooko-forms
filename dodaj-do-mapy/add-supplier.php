@@ -170,6 +170,7 @@ endif;
      <option value="podkarpackie">podkarpackie</option>
      <option value="podlaskie">podlaskie</option>
      <option value="pomorskie">pomorskie</option>
+     <option value="śląskie">śląskie</option>
      <option value="świętokrzyskie">świętokrzyskie</option>
      <option value="warmińsko-mazurskie">warmińsko-mazurskie</option>
      <option value="wielkopolskie">wielkopolskie</option>
