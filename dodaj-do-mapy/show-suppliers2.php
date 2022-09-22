@@ -57,7 +57,7 @@ endif;
 // This path should point to Composer's autoloader
 require '../vendor/autoload.php';
 $configs = include('config.php');
-    
+
 use MongoDB\Client as Mongo;
 
 $mongoconnection = new Mongo("mongodb://${user}:${pwd}@${dbmhost}:${dbmport}");
