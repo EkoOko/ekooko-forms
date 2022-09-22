@@ -1,4 +1,4 @@
-<?php include_once("config.php"); 
+<?php include_once("config.php");
 
 if(!loggedIn()):
  header('Location: login.php');
@@ -255,6 +255,7 @@ echo ' >
        <option value="podlaskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="podlaskie") { echo "selected"; }; echo '>podlaskie</option>
        <option value="pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="pomorskie") { echo "selected"; }; echo '>pomorskie</option>
        <option value="świętokrzyskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="świętokrzyskie") { echo "selected"; }; echo '>świętokrzyskie</option>
+       <option value="śląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="śląskie") { echo "selected"; }; echo '>śląskie</option>
        <option value="warmińsko-mazurskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="warmińsko-mazurskie") { echo "selected"; }; echo '>warmińsko-mazurskie</option>
        <option value="wielkopolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="wielkopolskie") { echo "selected"; }; echo '>wielkopolskie</option>
        <option value="zachodniopomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="zachodniopomorskie") { echo "selected"; }; echo '>zachodniopomorskie</option>
