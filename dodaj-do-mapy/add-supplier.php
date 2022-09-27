@@ -44,6 +44,54 @@ endif;
    <label for="sname"></label><input class="w3-input" type="text" name="sname" placeholder="Nazwa gospodarstwa (opcjonalnie)"><br>
 <!--   <label><input class="w3-input" type="text" name="snick" placeholder="nick (opcjonalnie)"></label><br>-->
 
+  <div class="w3-row">
+    <div class="w3-col s5">
+      <label><input class="w3-input" type="text" name="scity" placeholder="Miejscowość*"></label><br>
+    </div>
+    <div class="w3-col s1">
+      &nbsp
+    </div>
+    <div class="w3-col s5">
+      <label><input class="w3-input" type="text" name="spostalcode" placeholder="kod pocztowy"></label><br>
+    </div>
+  </div>
+
+  <label><input class="w3-input" type="text" name="sstreet" placeholder="Ulica*"></label><br>
+  <label><input class="w3-input" type="text" name="sbuildingNr" placeholder="nr domu*"></label><br>
+  <label><select class="w3-select" name="swojewodztwo">
+   <option value="" disabled selected>wybierz województwo</option>
+   <option value="dolnośląskie">dolnośląskie</option>
+   <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+   <option value="lubelskie">lubelskie</option>
+   <option value="lubuskie">lubuskie</option>
+   <option value="łódzkie">łódzkie</option>
+   <option value="małopolskie">małopolskie</option>
+   <option value="mazowieckie">mazowieckie</option>
+   <option value="opolskie">opolskie</option>
+   <option value="podkarpackie">podkarpackie</option>
+   <option value="podlaskie">podlaskie</option>
+   <option value="pomorskie">pomorskie</option>
+   <option value="śląskie">śląskie</option>
+   <option value="świętokrzyskie">świętokrzyskie</option>
+   <option value="warmińsko-mazurskie">warmińsko-mazurskie</option>
+   <option value="wielkopolskie">wielkopolskie</option>
+   <option value="zachodniopomorskie">zachodniopomorskie</option>
+  </select></label><br><br>
+
+  <div class="w3-row">
+    <div class="w3-col s5">
+      <label><input class="w3-input" type="tel" name="stel" placeholder="telefon* (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
+    </div>
+    <div class="w3-col s1">
+      &nbsp
+    </div>
+    <div class="w3-col s5">
+      <label><input class="w3-input" type="tel2" name="stel2" placeholder="telefon dodatkowy (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
+    </div>
+  </div>
+
+  <label><input class="w3-input" type="email" name="semail" placeholder="adres email*"></label>
+
    <div class="w3-cell-row w3-row-padding">
     <div class="w3-cell w3-left-align">
       <!-- <label for="simage">Obrazek gospodarstwa (opcjonalnie): </label><input type="file" id="simage" name="simage"><br><br>-->
@@ -152,45 +200,6 @@ endif;
  </div>
 
  <div class="w3-half">
-  <fieldset><legend>Adres</legend>
-    <label><input class="w3-input" type="text" name="scity" placeholder="Miejscowość*"></label><br>
-    <label><input class="w3-input" type="text" name="sstreet" placeholder="Ulica*"></label><br>
-    <label><input class="w3-input" type="text" name="sbuildingNr" placeholder="nr domu*"></label><br>
-    <label><input class="w3-input" type="text" name="spostalcode" placeholder="kod pocztowy"></label><br>
-    <label><select class="w3-select" name="swojewodztwo">
-     <option value="" disabled selected>wybierz województwo</option>
-     <option value="dolnośląskie">dolnośląskie</option>
-     <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
-     <option value="lubelskie">lubelskie</option>
-     <option value="lubuskie">lubuskie</option>
-     <option value="łódzkie">łódzkie</option>
-     <option value="małopolskie">małopolskie</option>
-     <option value="mazowieckie">mazowieckie</option>
-     <option value="opolskie">opolskie</option>
-     <option value="podkarpackie">podkarpackie</option>
-     <option value="podlaskie">podlaskie</option>
-     <option value="pomorskie">pomorskie</option>
-     <option value="śląskie">śląskie</option>
-     <option value="świętokrzyskie">świętokrzyskie</option>
-     <option value="warmińsko-mazurskie">warmińsko-mazurskie</option>
-     <option value="wielkopolskie">wielkopolskie</option>
-     <option value="zachodniopomorskie">zachodniopomorskie</option>
-    </select></label><br><br>
-
-    <div class="w3-row">
-      <div class="w3-col s5">
-        <label><input class="w3-input" type="tel" name="stel" placeholder="telefon* (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
-      </div>
-      <div class="w3-col s1">
-        &nbsp
-      </div>
-      <div class="w3-col s5">
-        <label><input class="w3-input" type="tel2" name="stel2" placeholder="telefon dodatkowy (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
-      </div>
-    </div>
-
-    <label><input class="w3-input" type="email" name="semail" placeholder="adres email*"></label>
-  </fieldset>
   <fieldset>
     <legend>Współrzędne GPS</legend>
     <label>
