@@ -70,6 +70,65 @@ echo '<label for="slastname">Nazwisko</label><input class="w3-input" type="text"
 echo " value=\"$user->lastName\"><br>";
 //echo '    <label>Nick<input class="w3-input" type="text" name="snick"'; echo "value=\"$user->nick\"></label><br>";
 
+echo '<fieldset><legend>Adres</legend>
+      <label><input class="w3-input" type="text" name="scity" '; echo "value=\"$user->city\""; echo ' ></label><br>
+      <label><input class="w3-input" type="text" name="sstreet" '; echo "value=\"$user->street\""; echo '></label><br>
+      <label><input class="w3-input" type="text" name="sbuildingNr" '; echo "value=\"$user->buildingNr\""; echo '></label><br>
+      <label><input class="w3-input" type="text" name="spostalcode" '; echo "value=\"$user->postalCode\""; echo '></label><br>
+
+      <label><select class="w3-select" name="swojewodztwo">
+       <option value="" ';
+      if (!(isset($user->wojewodztwo))) { echo ' disabled selected>wybierz województwo</option>'; }
+     echo '
+       <option value="dolnośląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="dolnośląskie") { echo "selected"; }; echo '>dolnośląskie</option>
+       <option value="kujawsko-pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="kujawsko-pomorskie") { echo "selected"; }; echo '>kujawsko-pomorskie</option>
+       <option value="lubelskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="lubelskie") { echo "selected"; }; echo '>lubelskie</option>
+       <option value="lubuskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="lubuskie") { echo "selected"; }; echo '>lubuskie</option>
+       <option value="łódzkie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="łódzkie") { echo "selected"; }; echo '>łódzkie</option>
+       <option value="małopolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="małopolskie") { echo "selected"; }; echo '>małopolskie</option>
+       <option value="mazowieckie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="mazowieckie") { echo "selected"; }; echo '>mazowieckie</option>
+       <option value="opolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="opolskie") { echo "selected"; }; echo '>opolskie</option>
+       <option value="podkarpackie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="podkarpackie") { echo "selected"; }; echo '>podkarpackie</option>
+       <option value="podlaskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="podlaskie") { echo "selected"; }; echo '>podlaskie</option>
+       <option value="pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="pomorskie") { echo "selected"; }; echo '>pomorskie</option>
+       <option value="świętokrzyskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="świętokrzyskie") { echo "selected"; }; echo '>świętokrzyskie</option>
+       <option value="śląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="śląskie") { echo "selected"; }; echo '>śląskie</option>
+       <option value="warmińsko-mazurskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="warmińsko-mazurskie") { echo "selected"; }; echo '>warmińsko-mazurskie</option>
+       <option value="wielkopolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="wielkopolskie") { echo "selected"; }; echo '>wielkopolskie</option>
+       <option value="zachodniopomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="zachodniopomorskie") { echo "selected"; }; echo '>zachodniopomorskie</option>
+      </select></label>
+
+      <div class="w3-row">
+        <div class="w3-col s5">
+          <label><input class="w3-input" type="tel" name="stel" '; echo "value=\"$user->contactPhone\""; echo ' pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
+        </div>
+        <div class="w3-col s1">
+          &nbsp
+        </div>
+        <div class="w3-col s5">
+          <label><input class="w3-input" type="tel2" name="stel2" ';
+          if (isset($user->contactPhone2) && $user->contactPhone2){
+           echo "value=\"$user->contactPhone2\"";
+         } else {
+           echo "value=\"\"";
+         }
+         echo ' pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
+        </div>
+      </div>
+      <label><input class="w3-input" type="email" name="semail" ';
+       echo "value=\"$user->email\""; echo '></label>
+    </fieldset>';
+
+    echo '<fieldset><legend>nr konta bankowego (opcjonalnie)</legend>
+          <input class="w3-input" type="text" name="sbankAccount" ';
+         if (isset($user->bankAccount) && $user->bankAccount){
+           echo "value=\"$user->bankAccount\"";
+         } else {
+           echo "value=\"\"";
+         }
+    echo '>
+        </fieldset>';
+
 echo '     <div class="w3-cell-row w3-row-padding">
       <div class="w3-cell w3-left-align">
         <!-- <label for="simage">Obrazek gospodarstwa (opcjonalnie): </label><input type="file" id="simage" name="simage"><br><br>-->
@@ -224,76 +283,19 @@ echo ' >
         </div>
       </div>
      </div>
-    </fieldset>
-  <fieldset><legend>Oferta</legend>
-    <textarea name="soffer" >';
-    echo "$user->offer";
-  echo ' </textarea>
-  </fieldset>
-   </div>
+    </fieldset>';
 
-   <div class="w3-half">
-    <fieldset><legend>Adres</legend>
-      <label><input class="w3-input" type="text" name="scity" '; echo "value=\"$user->city\""; echo ' ></label><br>
-      <label><input class="w3-input" type="text" name="sstreet" '; echo "value=\"$user->street\""; echo '></label><br>
-      <label><input class="w3-input" type="text" name="sbuildingNr" '; echo "value=\"$user->buildingNr\""; echo '></label><br>
-      <label><input class="w3-input" type="text" name="spostalcode" '; echo "value=\"$user->postalCode\""; echo '></label><br>
+echo '</div>
 
-      <label><select class="w3-select" name="swojewodztwo">
-       <option value="" ';
-      if (!(isset($user->wojewodztwo))) { echo ' disabled selected>wybierz województwo</option>'; }
-     echo '
-       <option value="dolnośląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="dolnośląskie") { echo "selected"; }; echo '>dolnośląskie</option>
-       <option value="kujawsko-pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="kujawsko-pomorskie") { echo "selected"; }; echo '>kujawsko-pomorskie</option>
-       <option value="lubelskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="lubelskie") { echo "selected"; }; echo '>lubelskie</option>
-       <option value="lubuskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="lubuskie") { echo "selected"; }; echo '>lubuskie</option>
-       <option value="łódzkie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="łódzkie") { echo "selected"; }; echo '>łódzkie</option>
-       <option value="małopolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="małopolskie") { echo "selected"; }; echo '>małopolskie</option>
-       <option value="mazowieckie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="mazowieckie") { echo "selected"; }; echo '>mazowieckie</option>
-       <option value="opolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="opolskie") { echo "selected"; }; echo '>opolskie</option>
-       <option value="podkarpackie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="podkarpackie") { echo "selected"; }; echo '>podkarpackie</option>
-       <option value="podlaskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="podlaskie") { echo "selected"; }; echo '>podlaskie</option>
-       <option value="pomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="pomorskie") { echo "selected"; }; echo '>pomorskie</option>
-       <option value="świętokrzyskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="świętokrzyskie") { echo "selected"; }; echo '>świętokrzyskie</option>
-       <option value="śląskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="śląskie") { echo "selected"; }; echo '>śląskie</option>
-       <option value="warmińsko-mazurskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="warmińsko-mazurskie") { echo "selected"; }; echo '>warmińsko-mazurskie</option>
-       <option value="wielkopolskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="wielkopolskie") { echo "selected"; }; echo '>wielkopolskie</option>
-       <option value="zachodniopomorskie" '; if (isset($user->wojewodztwo) && $user->wojewodztwo=="zachodniopomorskie") { echo "selected"; }; echo '>zachodniopomorskie</option>
-      </select></label>
+   <div class="w3-half">';
 
-      <div class="w3-row">
-        <div class="w3-col s5">
-          <label><input class="w3-input" type="tel" name="stel" '; echo "value=\"$user->contactPhone\""; echo ' pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
-        </div>
-        <div class="w3-col s1">
-          &nbsp
-        </div>
-        <div class="w3-col s5">
-          <label><input class="w3-input" type="tel2" name="stel2" ';
-          if (isset($user->contactPhone2) && $user->contactPhone2){
-           echo "value=\"$user->contactPhone2\"";
-         } else {
-           echo "value=\"\"";
-         }
-         echo ' pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></label><br>
-        </div>
-      </div>
-      <label><input class="w3-input" type="email" name="semail" ';
-       echo "value=\"$user->email\""; echo '></label>
-    </fieldset>
-    <fieldset>
-      <legend>Współrzędne GPS</legend>
-      <label>
-      <input class="w3-input" type="text" name="smapCoordinates" ';
-      if (isset($user->mapCoordinates) && $user->mapCoordinates){
-       echo "value=\"$user->mapCoordinates\"";
-      } else {
-       echo "value=\"\"";
-      }
-      echo '>
-           </label>
-    </fieldset>
-    <fieldset><legend>Opcje</legend>
+   echo '<fieldset><legend>Oferta</legend>
+       <textarea name="soffer" >';
+       echo "$user->offer";
+     echo ' </textarea>
+     </fieldset>';
+
+echo '<fieldset><legend>Opcje</legend>
     <div class="w3-cell-row w3-left-align">
     <div class="w3-cel"><label><input class="w3-check" type="checkbox" name="spersonaly" ';
      if (isset($user->personaly) && $user->personaly) echo "checked=true"; echo '> odbiór osobisty</label></div>
@@ -305,20 +307,28 @@ echo ' >
      if (isset($user->collecting) && $user->collecting) echo "checked=true"; echo '> samozbiór</label></div>
     </div>
     <br>
-    </fieldset>
-    <fieldset><legend>nr konta bankowego (opcjonalnie)</legend>
-      <input class="w3-input" type="text" name="sbankAccount" ';
-     if (isset($user->bankAccount) && $user->bankAccount){
-       echo "value=\"$user->bankAccount\"";
-     } else {
-       echo "value=\"\"";
-     }
-echo '>
-    </fieldset>
-    <fieldset><legend>Parametry dla Stowarzyszenia</legend>
-      <div class="w3-container w3-col w3-left-align">
+    </fieldset>';
 
-      <label><input class="w3-check" type="checkbox" name="saddreschecked" ';
+    echo '<fieldset>
+          <legend>Współrzędne GPS</legend>
+          <label>
+          <input class="w3-input" type="text" name="smapCoordinates" ';
+          if (isset($user->mapCoordinates) && $user->mapCoordinates){
+           echo "value=\"$user->mapCoordinates\"";
+          } else {
+           echo "value=\"\"";
+          }
+          echo '>
+               </label>
+        </fieldset>';
+
+echo '<fieldset><legend>Parametry dla Stowarzyszenia</legend>
+      <div class="w3-container w3-col w3-left-align">';
+
+      echo " status: <b>".$user->status."</b><br>" ;
+      echo " (id: ".$user->_id.")<br>" ;
+
+echo '<label><input class="w3-check" type="checkbox" name="saddreschecked" ';
        if (isset($user->addreschecked) && $user->addreschecked) echo "checked=true";
       echo '> adres sprawdzony</label><br>
     <div class="w3-row-padding">
@@ -365,8 +375,6 @@ echo '>
        }
 echo '</div>';
 
-      echo " status: <b>".$user->status."</b><br>" ;
-      echo " (id: ".$user->_id.")<br>" ;
       echo "</fieldset>";
 
 echo ' </div>

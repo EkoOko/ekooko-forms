@@ -92,6 +92,10 @@ endif;
 
   <label><input class="w3-input" type="email" name="semail" placeholder="adres email*"></label>
 
+  <fieldset><legend>nr konta bankowego (opcjonalnie)</legend>
+    <input class="w3-input" type="text" name="sbankAccount" placeholder="XX XXXX XXXX XXXX XXXX XXXX XXXX">
+  </fieldset>
+
    <div class="w3-cell-row w3-row-padding">
     <div class="w3-cell w3-left-align">
       <!-- <label for="simage">Obrazek gospodarstwa (opcjonalnie): </label><input type="file" id="simage" name="simage"><br><br>-->
@@ -191,21 +195,14 @@ endif;
     </div>
    </div>
   </fieldset>
-<fieldset><legend>Oferta</legend>
-  <textarea name="soffer" rows="6" cols="60" placeholder="Jabłka, seler, itp.">
-
-  </textarea>
-
-</fieldset>
  </div>
 
  <div class="w3-half">
-  <fieldset>
-    <legend>Współrzędne GPS</legend>
-    <label>
-    <input class="w3-input" type="text" name="smapCoordinates" placeholder="xx.xxxxx,yy.yyyyyyy (wypełnią się automatycznie z danych adresowych)">
-    </label>
-  </fieldset>
+   <fieldset><legend>Oferta</legend>
+     <textarea name="soffer" rows="6" cols="60" placeholder="Jabłka, seler, itp.">
+     </textarea>
+ </fieldset>
+
   <fieldset><legend>Opcje</legend>
   <div class="w3-cell-row w3-left-align">
   <div class="w3-cel"><label><input class="w3-check" type="checkbox" name="spersonaly"> odbiór osobisty</label></div>
@@ -215,9 +212,14 @@ endif;
   </div>
   <br>
   </fieldset>
-  <fieldset><legend>nr konta bankowego (opcjonalnie)</legend>
-    <input class="w3-input" type="text" name="sbankAccount" placeholder="XX XXXX XXXX XXXX XXXX XXXX XXXX">
+
+  <fieldset>
+    <legend>Współrzędne GPS</legend>
+    <label>
+    <input class="w3-input" type="text" name="smapCoordinates" placeholder="xx.xxxxx,yy.yyyyyyy (wypełnią się automatycznie z danych adresowych)">
+    </label>
   </fieldset>
+
   <fieldset><legend>Parametry dla Stowarzyszenia</legend>
     <div class="w3-container w3-cell w3-left-align">
       <label><input class="w3-check" type="checkbox" name="srodoagree"> zgoda RODO</label><br>
