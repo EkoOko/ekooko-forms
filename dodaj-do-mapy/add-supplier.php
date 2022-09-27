@@ -91,6 +91,7 @@ endif;
   </div>
 
   <label><input class="w3-input" type="email" name="semail" placeholder="adres email*"></label>
+
   <fieldset><legend>nr konta bankowego (opcjonalnie)</legend>
     <input class="w3-input" type="text" name="sbankAccount" placeholder="XX XXXX XXXX XXXX XXXX XXXX XXXX">
   </fieldset>
@@ -199,10 +200,9 @@ endif;
  <div class="w3-half">
    <fieldset><legend>Oferta</legend>
      <textarea name="soffer" rows="6" cols="60" placeholder="Jabłka, seler, itp.">
-
      </textarea>
+ </fieldset>
 
-   </fieldset>
   <fieldset><legend>Opcje</legend>
   <div class="w3-cell-row w3-left-align">
   <div class="w3-cel"><label><input class="w3-check" type="checkbox" name="spersonaly"> odbiór osobisty</label></div>
