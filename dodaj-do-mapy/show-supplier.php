@@ -62,8 +62,7 @@ $result = $collection->find(['_id'=> new MongoDB\BSON\ObjectId("$sid")]);
 foreach ($result as $user) {
  echo "Nazwa gospodarstwa: <b>".$user->name."</b>" ;
  echo " (id: ".$user->_id.")<br>" ;
- echo "<br>Imię: ".$user->firstName."<br>" ;
- echo "Nazwisko: ".$user->lastName."<br>" ;
+ echo "<br>Imię: ".$user->firstName."&nbsp" ; echo "Nazwisko: ".$user->lastName."<br>" ;
  //echo "nick: ".$user->nick."<br><br>" ;
  echo "<fieldset><legend>Adres</legend>";
  echo "miejscowość: ".$user->city."<br>" ;
