@@ -60,15 +60,29 @@ $result = $collection->find(['_id'=> new MongoDB\BSON\ObjectId("$sid")]);
 
 
 foreach ($result as $user) {
-  echo " status: <b>".$user->status."</b><br>" ;
  echo "Nazwa gospodarstwa: <b>".$user->name."</b>" ;
  echo " (id: ".$user->_id.")<br>" ;
- echo "<br>Imię: ".$user->firstName."<br>" ;
- echo "Nazwisko: ".$user->lastName."<br>" ;
+ echo "<br>Imię: ".$user->firstName."&nbsp" ; echo "Nazwisko: ".$user->lastName."<br>" ;
  //echo "nick: ".$user->nick."<br><br>" ;
- echo "typ: ".$user->type."<br>";
+ echo "<fieldset><legend>Adres</legend>";
+ echo "miejscowość: ".$user->city."<br>" ;
+ echo "ulica: ".$user->street."<br>" ;
+ echo "nr domu: ".$user->buildingNr."<br>" ;
+ echo "kod pocztowy: ".$user->postalCode."<br>";
+ echo "wojewodztwo: ".$user->wojewodztwo."<br>";
+ echo "kraj: ".$user->countryCode."<br>" ;
+ echo "<br>telefon: ".$user->contactPhone." " ;
+ echo "telefon2: ".$user->contactPhone2."<br><br>" ;
+ echo "adres email: ".$user->email."<br>" ;
+echo "</fieldset>";
 
-echo "<br>Dostepny w dniach:<br><br>";
+echo "<fieldset><legend>nr konta bankowego (opcjonalnie)</legend>";
+echo "".$user->bankAccount."<br>";
+echo "</fieldset>";
+
+echo "typ: ".$user->type."<br>";
+
+ echo "<br>Dostepny w dniach:<br><br>";
  echo "poniedziałek: ".$user->availabilityInMon." ";
  echo "w godzinach: ".$user->workinghourMon."<br>";
  echo "wtorek: ".$user->availabilityInTue." ";
@@ -85,38 +99,28 @@ echo "<br>Dostepny w dniach:<br><br>";
  echo "w godzinach: ".$user->workinghourSun."<br>";
 
  echo "</fieldset>";
-echo "<fieldset><legend>Oferta</legend>";
-echo "$user->offer";
-echo "</fieldset>
- </div>
- <div class=\"w3-half\">
-  <fieldset><legend>Adres</legend>";
 
- echo "miejscowość: ".$user->city."<br>" ;
- echo "ulica: ".$user->street."<br>" ;
- echo "nr domu: ".$user->buildingNr."<br>" ;
- echo "kod pocztowy: ".$user->postalCode."<br>";
- echo "wojewodztwo: ".$user->wojewodztwo."<br>";
- echo "kraj: ".$user->countryCode."<br>" ;
- echo "<br>telefon: ".$user->contactPhone." " ;
- echo "telefon2: ".$user->contactPhone2."<br><br>" ;
- echo "adres email: ".$user->email."<br>" ;
-echo "</fieldset>
- <fieldset>
-   <legend>Współrzędne GPS</legend>";
- echo "koordynaty: ".$user->mapCoordinates."<br>";
-echo "</fieldset>
- <fieldset><legend>Opcje</legend>";
+echo "</div>
+ <div class=\"w3-half\">";
+ echo "<fieldset><legend>Oferta</legend>";
+ echo "$user->offer";
+ echo "</fieldset>";
+
+ echo "<fieldset><legend>Opcje</legend>";
  echo "odbiór osobisty: ".$user->personaly."<br>";
  echo "dostawa(dowóz): ".$user->delivery."<br>";
  echo "wysyłka: ".$user->shipment."<br>";
  echo "samozbiór: ".$user->collecting."<br>";
-echo "</fieldset>
- <fieldset><legend>nr konta bankowego (opcjonalnie)</legend>";
- echo "".$user->bankAccount."<br>";
-echo "</fieldset>
- <fieldset><legend>Parametry dla Stowarzyszenia</legend>";
+echo "</fieldset>";
 
+ echo "<fieldset>
+   <legend>Współrzędne GPS</legend>";
+  echo "koordynaty: ".$user->mapCoordinates."<br>";
+ echo "</fieldset>";
+
+echo " <fieldset><legend>Parametry dla Stowarzyszenia</legend>";
+
+ echo "status: <b>".$user->status."</b><br>" ;
  echo "adres sprawdzony: ".$user->addreschecked."<br>";
  echo "RODO zgoda: ".$user->rodoagree."&nbsp&nbsp&nbsp data zgody: ".$user->rodoagreewhen."<br>";
  echo "Skąd uzyskano adres: ".$user->sourceofsupplier."<br>";

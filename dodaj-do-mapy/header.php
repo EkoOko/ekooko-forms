@@ -2,7 +2,7 @@
       <div class="w3-container">
        <div class="w3-row-padding">
         <div class="w3-container w3-half">
-          <a href="/"><img src="img/Zrzut ekranu z 2021-03-14 16-10-52.png-off" alt="logo EkoOko" title="logo"></a>
+          <a href="/"><img src="../img/Zrzut ekranu z 2021-03-14 16-10-52.png" alt="logo EkoOko" title="logo"></a>
         </div>
         <div class="w3-container w3-quarter">
          <dl>
